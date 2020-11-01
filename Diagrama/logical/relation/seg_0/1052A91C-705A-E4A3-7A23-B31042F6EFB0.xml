@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PIECES_ON_MATCH" directorySegmentName="seg_0" id="1052A91C-705A-E4A3-7A23-B31042F6EFB0">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>DEC29645-4B26-4950-AC97-2F531243194D</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<sourcePk>0DF52153-1936-B32B-2D7C-6B05A72E574E</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>23AA7E23-955C-ED84-2457-7B321AE156CE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>62D2F9C0-3F1D-0933-192B-FFCD03DE7A10</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="042C6C46-CB84-3E1D-F901-4DDDFAEDA3E6" name="MATCHES">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>568ADD4D-FE17-078F-C46A-9DB414426AC5</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="F501DDC4-34E1-2A03-EA6E-E3E1E54D254D">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>B6E86AE2-12D2-B36F-891E-33CA1BC812A9</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="START DATE" id="CF8086BD-6F87-DD5A-59B3-6DB98A842F47">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>C811F4F3-B1D9-09FB-28E6-F5EA4357C34A</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="END DATE" id="AF4D39A0-4C91-64F7-5627-6B925C7BA55F">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>9E206F00-C41A-C940-138C-EFC58A329959</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TURN" id="DD7A2570-7306-759C-B609-BE08F07E4499">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>23966C51-BEBA-1228-EC74-208025694C65</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID WHITE" id="213F9CE8-8B5B-BA55-00DF-48909CF4543E">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>AD93AD06-B8C0-63E4-FDE8-D8B25708B15E</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<referedAttribute>711AC3C7-4CFF-29CD-9CEA-8AC552209C24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID BLACK" id="D49514FA-3F4B-27DA-834B-A505D6BE65B6">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>584386B7-DA99-A8B5-D995-3FBA3E25981D</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<referedAttribute>711AC3C7-4CFF-29CD-9CEA-8AC552209C24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="WINNER COLOR" id="3054FFF4-F35E-E56B-9860-E1AE8C9947D9">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>81A192CD-430D-3CF8-AB54-57D10E32CAF8</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="WINNER ID" id="1B460CA5-BAB3-EE85-159F-0F3CAE1F3FA4">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>E5C239A9-B660-42D9-44D8-E7F921814C15</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<referedAttribute>711AC3C7-4CFF-29CD-9CEA-8AC552209C24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STATUS" id="1409DCBD-972C-FA86-9EFF-B5E2B5E4C277">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>BE290306-D3C8-6983-481F-A550EEAB8CD4</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="87AF7CDB-3EE5-EC44-A795-9F7E3C3899DD" name="MATCHES PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>8831B15B-C806-1FB5-CDA1-8C9A9883EC0E</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F501DDC4-34E1-2A03-EA6E-E3E1E54D254D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

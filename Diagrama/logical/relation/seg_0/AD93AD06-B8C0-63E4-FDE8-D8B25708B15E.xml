@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="WHITE_PLAYER_RELATION" directorySegmentName="seg_0" id="AD93AD06-B8C0-63E4-FDE8-D8B25708B15E">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>6F13EF0D-6DC1-3142-4F17-2E8BA3D9F934</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<sourcePk>7CB799E1-799E-2F57-35A7-5D364E78825F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8DFB5443-66B5-8D17-2D39-A9024E621982</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>042C6C46-CB84-3E1D-F901-4DDDFAEDA3E6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

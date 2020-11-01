@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="23AA7E23-955C-ED84-2457-7B321AE156CE" name="PIECES">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>5E1DACB4-6852-F498-5F66-E009D42CD959</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CODE" id="93BF9B92-24FE-AFEC-AF78-3BB03210E44F">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>F7F4FA05-C173-652A-FBF9-60ADEA1A5268</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="F41F2F00-E1E7-477C-E0B6-BED109674651">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>A3DA345B-8776-DDFD-F964-32C96FBAEF1D</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="COLOR" id="CE5792F4-E74E-DE15-08B7-7864383FDB57">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>BE0E6B2D-DC12-4848-21C7-CA341C94081F</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PIECES PER MATCH ID MATCH" id="4FC3434D-9B66-8B6C-28E0-93021D984D65">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>DB039670-312D-47F5-806A-9FBD02435413</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0DF52153-1936-B32B-2D7C-6B05A72E574E" name="PIECES PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:43:18 UTC</createdTime>
+<generatorID>D4A1B967-0B01-F140-75A8-7E1CBE75CA29</generatorID>
+<ownerDesignName>Diagrama</ownerDesignName>
+<engineerTo>
+<item key="8AE83A2E-CF55-5342-16DD-186C04A31153" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>93BF9B92-24FE-AFEC-AF78-3BB03210E44F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
