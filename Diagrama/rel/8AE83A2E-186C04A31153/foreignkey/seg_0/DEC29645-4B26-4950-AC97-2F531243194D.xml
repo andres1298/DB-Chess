@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DEC29645-4B26-4950-AC97-2F531243194D" containerWithKeyObject="07E1168C-5F74-2DFA-70E6-8C2E703ECCBA" localFKIndex="BA0252E3-3ED2-0644-73EC-F66E111661F1" name="PIECES_ON_MATCH">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:34:31 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<referredTableLongName>PIECES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5E1DACB4-6852-F498-5F66-E009D42CD959</referredTableID>
+<keyObject>D4A1B967-0B01-F140-75A8-7E1CBE75CA29</keyObject>
+<referredKeyID>D4A1B967-0B01-F140-75A8-7E1CBE75CA29</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CODE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

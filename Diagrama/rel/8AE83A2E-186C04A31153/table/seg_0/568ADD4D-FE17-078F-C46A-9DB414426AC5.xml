@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="568ADD4D-FE17-078F-C46A-9DB414426AC5" name="MATCHES">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:10:08 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B6E86AE2-12D2-B36F-891E-33CA1BC812A9">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:11:08 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="C811F4F3-B1D9-09FB-28E6-F5EA4357C34A">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE" id="9E206F00-C41A-C940-138C-EFC58A329959">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TURN" id="23966C51-BEBA-1228-EC74-208025694C65">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_WHITE" id="D33D357B-4511-7463-2602-99619A938A49">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F13EF0D-6DC1-3142-4F17-2E8BA3D9F934" referredColumn="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71"/>
+</associations>
+</Column>
+<Column name="ID_BLACK" id="E1E80F2E-C45A-31D3-0184-A9D2CD22534F">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="699806AB-70D2-FCEA-B484-513309C32444" referredColumn="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71"/>
+</associations>
+</Column>
+<Column name="WINNER_COLOR" id="81A192CD-430D-3CF8-AB54-57D10E32CAF8">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WINNER_ID" id="950FF71B-7DCF-9DA8-E39B-A3E1828F57C0">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="643C463A-B04F-D4AE-7D58-9D24D5E5E0DB" referredColumn="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71"/>
+</associations>
+</Column>
+<Column name="STATUS" id="BE290306-D3C8-6983-481F-A550EEAB8CD4">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:19:14 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8831B15B-C806-1FB5-CDA1-8C9A9883EC0E" name="MATCHES_PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:11:08 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6E86AE2-12D2-B36F-891E-33CA1BC812A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3CBEFE47-C61C-0147-1DDB-C6D87BBED75B" name="WHITE_PLAYER_RELATION">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:38:00 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D33D357B-4511-7463-2602-99619A938A49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB19D93B-56C6-CC3D-663D-B0313A3DA551" name="BLACK_PLAYER_RELATION">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:38:28 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1E80F2E-C45A-31D3-0184-A9D2CD22534F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13ED8B32-16A7-4AE8-8628-8FF09993EBB3" name="WINNER_PLAYER_RELATION">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:39:28 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="950FF71B-7DCF-9DA8-E39B-A3E1828F57C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

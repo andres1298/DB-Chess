@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E1DACB4-6852-F498-5F66-E009D42CD959" name="PIECES">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:00:57 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODE" id="F7F4FA05-C173-652A-FBF9-60ADEA1A5268">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:08:04 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="A3DA345B-8776-DDFD-F964-32C96FBAEF1D">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:08:04 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COLOR" id="BE0E6B2D-DC12-4848-21C7-CA341C94081F">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:09:44 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PIECES_PER_MATCH_ID_MATCH" id="DB039670-312D-47F5-806A-9FBD02435413">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:34:16 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D4A1B967-0B01-F140-75A8-7E1CBE75CA29" name="PIECES_PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:08:04 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7F4FA05-C173-652A-FBF9-60ADEA1A5268"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

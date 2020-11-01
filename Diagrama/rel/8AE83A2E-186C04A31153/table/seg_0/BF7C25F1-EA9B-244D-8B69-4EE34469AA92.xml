@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BF7C25F1-EA9B-244D-8B69-4EE34469AA92" name="PLAYERS">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:20:51 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:21:16 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="5D6EC789-BD47-55A0-344D-3E4F0900198E">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERNAME" id="ABDD32AD-0A76-2FD7-424C-7FA5C1EB9C5C">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PLAYED_MATCHES" id="A9130714-7569-F6CF-6F21-F0A8CFE8ED3D">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WON_MATCHES" id="314878A7-93FC-93F0-A6EA-6462D7084FFA">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIED_MATCHES" id="62D190AE-F4C0-B746-7C6E-4081BB6AC6FB">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOST_MATCHES" id="5469DE71-B680-C4AC-ABCF-EA9A851485C9">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:22:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6A81CE42-FB53-8CE8-AF1B-C25CC8CF8B94" name="PLAYERS_PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:21:16 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

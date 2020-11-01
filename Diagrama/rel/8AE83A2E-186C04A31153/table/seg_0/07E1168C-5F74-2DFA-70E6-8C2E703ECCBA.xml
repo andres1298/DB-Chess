@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07E1168C-5F74-2DFA-70E6-8C2E703ECCBA" name="PIECES_PER_MATCH">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:23:38 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PIECE" id="9E52302F-2727-AAD5-0633-95CEAF913BAE">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DEC29645-4B26-4950-AC97-2F531243194D" referredColumn="F7F4FA05-C173-652A-FBF9-60ADEA1A5268"/>
+</associations>
+</Column>
+<Column name="ID_MATCH" id="AE67C281-0FE3-C931-557F-781E2A05D43F">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7B8E8870-1899-B594-5BD1-5C959A613159" referredColumn="B6E86AE2-12D2-B36F-891E-33CA1BC812A9"/>
+</associations>
+</Column>
+<Column name="ROW" id="93979670-AC36-D86A-BB95-5F5DB67B70CE">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COLUMN" id="BBA2E958-5C2A-607C-4BED-F079CD76091D">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COLOR" id="42BE1590-9798-545A-69F9-D145F0DB799B">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3605634F-CC89-62FB-F57A-B763545F8D69" name="PIECES_PER_MATCH_PK">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:27:33 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE67C281-0FE3-C931-557F-781E2A05D43F"/>
+<colUsage columnID="9E52302F-2727-AAD5-0633-95CEAF913BAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA0252E3-3ED2-0644-73EC-F66E111661F1" name="PIECES_ON_MATCH">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:34:31 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E52302F-2727-AAD5-0633-95CEAF913BAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C9356E7-DF79-541A-E50A-983A6B6ABA7B" name="MATCH_RELATION">
+<createdBy>XPC</createdBy>
+<createdTime>2020-11-01 17:35:29 UTC</createdTime>
+<ownerDesignName>Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE67C281-0FE3-C931-557F-781E2A05D43F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
