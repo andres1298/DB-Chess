@@ -26,7 +26,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="COLOR" id="BE0E6B2D-DC12-4848-21C7-CA341C94081F">
@@ -40,15 +41,16 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="PIECES_PER_MATCH_ID_MATCH" id="DB039670-312D-47F5-806A-9FBD02435413">
+<Column name="DISPLAY" id="46EE4274-7645-7B8A-493B-91252BA79AF4">
 <createdBy>XPC</createdBy>
-<createdTime>2020-11-01 17:34:16 UTC</createdTime>
+<createdTime>2020-11-08 21:55:51 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
