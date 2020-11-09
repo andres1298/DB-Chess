@@ -12,11 +12,10 @@
 CREATE TABLE matches (
     id            NUMBER NOT NULL,
     start_date    DATE NOT NULL,
-    end_date      DATE NOT NULL,
+    end_date      DATE,
     turn          CHAR(1) NOT NULL,
-    players_id    NUMBER NOT NULL,
     players_id1   NUMBER NOT NULL,
-    winner_color  CHAR(1) NOT NULL,
+    winner_color  CHAR(1),
     players_id2   NUMBER NOT NULL,
     status        CHAR(1) NOT NULL
 );
@@ -47,20 +46,16 @@ CREATE TABLE players (
     id              NUMBER NOT NULL,
     name            VARCHAR2(50) NOT NULL,
     username        VARCHAR2(50) NOT NULL,
-    played_matches  NUMBER NOT NULL,
-    won_matches     NUMBER NOT NULL,
-    tied_matches    NUMBER NOT NULL,
-    lost_matches    NUMBER NOT NULL
+    played_matches  NUMBER DEFAULT 0 NOT NULL,
+    won_matches     NUMBER DEFAULT 0 NOT NULL,
+    tied_matches    NUMBER DEFAULT 0 NOT NULL,
+    lost_matches    NUMBER DEFAULT 0 NOT NULL
 );
 
 ALTER TABLE players ADD CONSTRAINT players_pk PRIMARY KEY ( id );
 
 ALTER TABLE matches
     ADD CONSTRAINT matches_players_fk FOREIGN KEY ( players_id1 )
-        REFERENCES players ( id );
-
-ALTER TABLE matches
-    ADD CONSTRAINT matches_players_fkv1 FOREIGN KEY ( players_id )
         REFERENCES players ( id );
 
 ALTER TABLE matches
@@ -97,8 +92,18 @@ BEGIN
 END;
 /
 
+-- INSERT INTO PLAYERS (id, name, username) values (players_id_seq.nextval, 'Kamil', 'kam');
+-- INSERT INTO PLAYERS (id, name, username) values (players_id_seq.nextval, 'Andres', 'andrew');
 
 
+/*
+
+drop table PIECES_PER_MATCH;
+drop table PIECES;
+drop table MATCHES;
+drop table PLAYERS;
+
+ */
 -- Oracle SQL Developer Data Modeler Summary Report: 
 -- 
 -- CREATE TABLE                             4
