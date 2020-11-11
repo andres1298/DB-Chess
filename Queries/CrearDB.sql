@@ -102,6 +102,8 @@ drop table PIECES_PER_MATCH;
 drop table PIECES;
 drop table MATCHES;
 drop table PLAYERS;
+drop sequence MATCHES_ID_SEQ;
+drop sequence PLAYERS_ID_SEQ;
 
  */
 -- Oracle SQL Developer Data Modeler Summary Report: 

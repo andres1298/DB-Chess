@@ -1,5 +1,5 @@
 DECLARE
-    idJuego NUMBER := 21;
+    idJuego NUMBER := 1;
     contenido VARCHAR2(300) := '';
     letra char;
     piecesCode VARCHAR2(3);
@@ -10,7 +10,7 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(LPAD('a', 6) || LPAD('b', 6) || LPAD('c', 6) || LPAD('d', 6) || LPAD('e', 6) || LPAD('f', 6) || LPAD('g', 6) || LPAD('h', 6));
 
     for i in 1..8 loop
-        contenido:=i||' ';
+        contenido:=i||' |';
         for h in 1..8 loop
 
             if(h = 1) then
@@ -38,7 +38,7 @@ BEGIN
             EXCEPTION
                 when NO_DATA_FOUND then
 
-                    contenido := contenido || ' | _ |';
+                    contenido := contenido || '___|' ;
 
                 CONTINUE;
             END;
@@ -46,9 +46,9 @@ BEGIN
 
             if(piecesCode is not null) then
                 SELECT DISPLAY into pieceDisplay from PIECES where code = piecesCode;
-                contenido := contenido || ' | ' || pieceDisplay || ' |';
+                contenido := contenido || '  ' || pieceDisplay || ' |';
             else
-                contenido := contenido || ' | _ |';
+                contenido := contenido || '___|';
             end if;
 
         end loop;
