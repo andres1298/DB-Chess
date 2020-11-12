@@ -11,7 +11,7 @@
 
 CREATE TABLE matches (
     id            NUMBER NOT NULL,
-    start_date    DATE NOT NULL,
+    start_date    DATE NOT NULL, default sysdate,
     end_date      DATE NOT NULL,
     turn          CHAR(1) NOT NULL,
     id_white      NUMBER NOT NULL,
@@ -25,7 +25,7 @@ ALTER TABLE matches ADD CONSTRAINT matches_pk PRIMARY KEY ( id );
 
 CREATE TABLE pieces (
     code                       VARCHAR2(3) NOT NULL,
-    name                       VARCHAR2 
+    name                       VARCHAR2(200) 
 --  ERROR: VARCHAR2 size not specified 
      NOT NULL,
     color                      CHAR(1) NOT NULL,
@@ -47,10 +47,10 @@ ALTER TABLE pieces_per_match ADD CONSTRAINT pieces_per_match_pk PRIMARY KEY ( id
 
 CREATE TABLE players (
     id              NUMBER NOT NULL,
-    name            VARCHAR2 
+    name            VARCHAR2(200) 
 --  ERROR: VARCHAR2 size not specified 
      NOT NULL,
-    username        VARCHAR2 
+    username        VARCHAR2(200) 
 --  ERROR: VARCHAR2 size not specified 
      NOT NULL,
     played_matches  NUMBER NOT NULL,
