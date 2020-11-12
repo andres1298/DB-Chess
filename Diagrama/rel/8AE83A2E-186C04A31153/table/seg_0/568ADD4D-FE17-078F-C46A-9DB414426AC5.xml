@@ -50,7 +50,7 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ID_WHITE" id="D33D357B-4511-7463-2602-99619A938A49">
+<Column name="PLAYERS_ID" id="D33D357B-4511-7463-2602-99619A938A49">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:19:14 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
@@ -63,7 +63,7 @@
 <colAssociation fkAssociation="6F13EF0D-6DC1-3142-4F17-2E8BA3D9F934" referredColumn="6AF8F05B-BBF2-F24D-02BE-59EDE3C99B71"/>
 </associations>
 </Column>
-<Column name="ID_BLACK" id="E1E80F2E-C45A-31D3-0184-A9D2CD22534F">
+<Column name="PLAYERS_ID1" id="E1E80F2E-C45A-31D3-0184-A9D2CD22534F">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:19:14 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
@@ -87,7 +87,7 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="WINNER_ID" id="950FF71B-7DCF-9DA8-E39B-A3E1828F57C0">
+<Column name="PLAYERS_ID2" id="950FF71B-7DCF-9DA8-E39B-A3E1828F57C0">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:19:14 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
@@ -124,7 +124,7 @@
 <colUsage columnID="B6E86AE2-12D2-B36F-891E-33CA1BC812A9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="3CBEFE47-C61C-0147-1DDB-C6D87BBED75B" name="WHITE_PLAYER_RELATION">
+<ind_PK_UK id="3CBEFE47-C61C-0147-1DDB-C6D87BBED75B" name="MATCHES_PLAYERS_FKv1">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:38:00 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
@@ -134,7 +134,7 @@
 <colUsage columnID="D33D357B-4511-7463-2602-99619A938A49"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="EB19D93B-56C6-CC3D-663D-B0313A3DA551" name="BLACK_PLAYER_RELATION">
+<ind_PK_UK id="EB19D93B-56C6-CC3D-663D-B0313A3DA551" name="MATCHES_PLAYERS_FK">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:38:28 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
@@ -144,7 +144,7 @@
 <colUsage columnID="E1E80F2E-C45A-31D3-0184-A9D2CD22534F"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="13ED8B32-16A7-4AE8-8628-8FF09993EBB3" name="WINNER_PLAYER_RELATION">
+<ind_PK_UK id="13ED8B32-16A7-4AE8-8628-8FF09993EBB3" name="MATCHES_PLAYERS_FKv2">
 <createdBy>XPC</createdBy>
 <createdTime>2020-11-01 17:39:28 UTC</createdTime>
 <ownerDesignName>Diagrama</ownerDesignName>
