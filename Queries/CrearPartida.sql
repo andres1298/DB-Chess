@@ -1,6 +1,6 @@
 DECLARE
-    idJugador1 NUMBER := 1;
-    idJugador2 NUMBER := 2;
+    idJugador1 NUMBER := 3;
+    idJugador2 NUMBER := 4;
     i1 NUMBER  := 0;
     i2 NUMBER  := 0;
     matchId NUMBER := 0;

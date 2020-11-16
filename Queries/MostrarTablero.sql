@@ -1,5 +1,5 @@
 DECLARE
-    idJuego NUMBER := 2;
+    idJuego NUMBER := 4;
     contenido VARCHAR2(500) := '';
     letra char;
     piecesCode VARCHAR2(3);
@@ -20,7 +20,7 @@ BEGIN
 		-- Ciclo que imprime las columnas del tablero
         for h in REVERSE 1..8 loop
 		
-			if(h = 1) then
+	    if(h = 1) then
                 letra:='a';
             elsif(h = 2) then
                 letra:='b';
