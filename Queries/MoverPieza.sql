@@ -1,41 +1,73 @@
 DECLARE
 	source VARCHAR2(2) := 'A1'; 
 	target VARCHAR2(2) := 'A7'; 
-	proceed BOOLEAN := FALSE;
-	matchID NUMBER := 4;
-	sourcePieceCode PIECES_PER_MATCH.PIECES_CODE%TYPE;
-	sourcePieceColor PIECES_PER_MATCH.COLOR%TYPE;
-	targetPieceCode PIECES_PER_MATCH.PIECES_CODE%TYPE;
-	targetPieceColor PIECES_PER_MATCH.COLOR%TYPE;
+	matchID NUMBER := 3;
 	matchTurn MATCHES.TURN%TYPE;
+	proceed BOOLEAN := FALSE;
+	
+	sourceData VARCHAR2(10);
+	targetData VARCHAR2(10);
 	
 	-- Exceptions
-	PIECE_DOESNOT_MATCH EXCEPTION;
+	SOURCE_INCORRECT_SIZE EXCEPTION;
+	TARGET_INCORRECT_SIZE EXCEPTION;
 BEGIN 
-	-- Query to get the piece in the source position
-	SELECT PIECES_CODE, COLOR, TURN INTO sourcePieceCode, sourcePieceColor, matchTurn
-	FROM PIECES_PER_MATCH PPM 
-	JOIN MATCHES M ON (PPM.MATCHES_ID = M.ID)
-	WHERE "ROW" = TO_NUMBER(SUBSTR(source, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(source, 1, 1));
-	
-	-- Query to get the piece in the target position
-	SELECT PIECES_CODE, COLOR INTO targetPieceCode, targetPieceColor
-	FROM PIECES_PER_MATCH PPM 
-	WHERE "ROW" = TO_NUMBER(SUBSTR(target, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(target, 1, 1));
-	-- Crear una funcion que retorne la pieza al enviarle las coordenadas. Una para el source y otra para target
-	-- Ya que el manejo de las excepciones debe ser diferente
-
-	-- Validations of the move
-	IF sourcePieceColor <> matchTurn THEN
-		RAISE PIECE_DOESNOT_MATCH;
+	-- Validaciones de formato 
+	-- Posible implementar REGEX_LIKE para validar que contenga una letra entre A y H en la primera posicion y numeros del 1 al 8 en la segunda posicion
+	IF LENGTH(source) <> 2 THEN
+		RAISE SOURCE_INCORRECT_SIZE;
+	ELSIF LENGTH(target) <> 2 THEN 
+		RAISE TARGET_INCORRECT_SIZE;
 	END IF;
 	
-	EXCEPTION
-		WHEN PIECE_DOESNOT_MATCH THEN
-			DBMS_OUTPUT.PUT_LINE('La pieza seleccionada pertenece al jugador contrario');
+	matchTurn := GetTurn(matchID);
+	IF matchTurn IS NOT NULL THEN
+		sourceData := SourcePosition(source, matchTurn);
+		targetData := TargetPosition(target, matchTurn);
+		IF sourceData IS NULL OR targetData IS NULL THEN
+			-- Si se obtiene un valor nulo (un error) se imprime el error de cada funcion y se retonar un valor para ejecutar el ciclo de la partida de nuevo
+			-- RETURN TRUE;
+			DBMS_OUTPUT.PUT_LINE('Error');
+		END IF;
+	-- Si no se puede obtener el ID de la partida, se muestra el mensaje de error obtenido en la funcion GetTurn 
+	-- y se retorna un valor para ejecutar el ciclo de la partida de nuevo
+	
+	-- ELSE 
+		-- RETURN TRUE;
+	END IF;
+	
+	CASE LOWER(SUBSTR(sourceData, INSTR(sourceData, ',') + 1))
+		WHEN 'p' THEN
+			-- Funcion peon
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Peon');
+		WHEN 't' THEN
+			-- Funcion torre
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Torre');
+		WHEN 'c' THEN
+			-- Funcion caballo
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Caballo');
+		WHEN 'a' THEN
+			-- Funcion alfil
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Alfil');
+		WHEN 'd' THEN
+			-- Funcion dama
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Dama');
+		WHEN 'r' THEN
+			-- Funcion rey
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Rey');
+		ELSE
+			-- Mensaje de error de pieza no encontrada
+			DBMS_OUTPUT.PUT_LINE('Error de pieza');
+	END CASE;
 		
-		WHEN NO_DATA_FOUND THEN
-			DBMS_OUTPUT.PUT_LINE('La casilla seleccionada esta vacia');
+	DBMS_OUTPUT.PUT_LINE('Source: ' || sourceData || ' Target: ' || targetData || ' Turn: ' || matchTurn);
+	 
+	EXCEPTION
+		
+		WHEN SOURCE_INCORRECT_SIZE THEN
+			DBMS_OUTPUT.PUT_LINE('Las coordenadas de origen no tienen el formato adecuado');
+		WHEN TARGET_INCORRECT_SIZE THEN
+			DBMS_OUTPUT.PUT_LINE('Las coordenadas de destino no tienen el formato adecuado');
 			
 	-- DBMS_OUTPUT.PUT_LINE(sourcePieceCode || ' ' || sourcePieceColor || ' ' || matchTurn);
 END;
