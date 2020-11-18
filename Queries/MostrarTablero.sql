@@ -1,11 +1,10 @@
 DECLARE
-    idJuego NUMBER := 4;
+    idJuego NUMBER := 22;
     contenido VARCHAR2(500) := '';
     letra char;
     piecesCode VARCHAR2(3);
     pieceDisplay  VARCHAR2(3);
 BEGIN
-
 
     DBMS_OUTPUT.PUT_LINE(rpad('.',3) || LPAD('a', 8) || LPAD('b', 8) || LPAD('c', 8) || LPAD('d', 8) || LPAD('e', 8) || LPAD('f', 8) || LPAD('g', 8) || LPAD('h', 8));
 
@@ -18,25 +17,9 @@ BEGIN
 		-- Se concatena el número de fila del tablero (posición i del ciclo)
 		contenido := contenido || rpad('.',4) || i || ' ';
 		-- Ciclo que imprime las columnas del tablero
-        for h in REVERSE 1..8 loop
-		
-	    if(h = 1) then
-                letra:='a';
-            elsif(h = 2) then
-                letra:='b';
-            elsif(h = 3) then
-                letra:='c';
-            elsif(h = 4) then
-                letra:='d';
-            elsif(h = 5) then
-                letra:='e';
-            elsif(h = 6) then
-                letra:='f';
-            elsif(h = 7) then
-                letra:='g';
-            elsif(h = 8) then
-                letra:='h';
-            end if;
+        for h in 1..8 loop
+
+	        letra:= NUMBERTOCOLUMN(h);
 
             BEGIN
             SELECT pieces_code into piecesCode FROM PIECES_PER_MATCH WHERE matches_id = idJuego AND "ROW"=i AND "COLUMN" = letra;

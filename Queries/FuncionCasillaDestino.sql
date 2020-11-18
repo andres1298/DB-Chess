@@ -8,13 +8,13 @@
 -- Returns: VARCHAR2 containing the code and display code of the selected piece separated by a comma.  If error, returns NULL. If NO_DATA_FOUND returns emptyValue constant
 -- =========================================
 
-CREATE OR REPLACE FUNCTION 
-TargetPosition (position VARCHAR2, matchTurn CHAR) RETURN VARCHAR2
+CREATE OR REPLACE FUNCTION
+TargetPosition (position VARCHAR2, matchTurn CHAR, gameId number) RETURN VARCHAR2
 IS
 	pCode PIECES.CODE%TYPE;
 	pDisplay PIECES.DISPLAY%TYPE;
 	pColor PIECES.COLOR%TYPE;
-	
+
 	emptyValue CONSTANT VARCHAR2(5) := 'EMPTY'; -- Return value used in case the position position is empty. It's returned in NO_DATA_FOUND exception
 
 	-- EXCEPTIONS
@@ -24,7 +24,8 @@ BEGIN
 	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pCode, pDisplay, pColor
 	FROM PIECES_PER_MATCH PPM
 	JOIN PIECES P ON (PPM.PIECES_CODE = P.CODE)
-	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1));
+	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
+	AND MATCHES_ID=gameId;
 	
 	IF pColor = matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;

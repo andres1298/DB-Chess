@@ -9,7 +9,7 @@
 -- =========================================
 
 CREATE OR REPLACE FUNCTION 
-SourcePosition (position VARCHAR2, matchTurn CHAR) RETURN VARCHAR2
+SourcePosition (position VARCHAR2, matchTurn CHAR, gameId number) RETURN VARCHAR2
 IS
 	pCode PIECES.CODE%TYPE;
 	pDisplay PIECES.DISPLAY%TYPE;
@@ -22,7 +22,8 @@ BEGIN
 	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pCode, pDisplay, pColor
 	FROM PIECES_PER_MATCH PPM
 	JOIN PIECES P ON (PPM.PIECES_CODE = P.CODE)
-	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1));
+	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
+	AND MATCHES_ID=gameId;
 	
 	IF pColor <> matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;
