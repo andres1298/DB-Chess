@@ -1,12 +1,14 @@
 DECLARE
-	source VARCHAR2(2) := 'B2';
-	target VARCHAR2(2) := 'A1';
-	matchID NUMBER := 22;
+	source VARCHAR2(2) := 'A1';
+	target VARCHAR2(2) := 'A2';
+	matchID NUMBER := 5;
 	matchTurn MATCHES.TURN%TYPE;
 	proceed BOOLEAN := FALSE;
 	
 	sourceData VARCHAR2(10);
 	targetData VARCHAR2(10);
+	sourcePiece PIECE;
+	targetPiece PIECE;
 	move boolean;
 	-- Exceptions
 	SOURCE_INCORRECT_SIZE EXCEPTION;
@@ -22,9 +24,9 @@ BEGIN
 	
 	matchTurn := GETTURN(matchID);
 	IF matchTurn IS NOT NULL THEN
-		sourceData := SourcePosition(source, matchTurn, matchID);
-		targetData := TargetPosition(target, matchTurn, matchID);
-		IF sourceData IS NULL OR targetData IS NULL THEN
+		sourcePiece := SourcePosition(source, matchTurn, matchID);
+		targetPiece := TargetPosition(target, matchTurn, matchID);
+		IF sourcePiece IS NULL OR targetPiece IS NULL THEN
 			-- Si se obtiene un valor nulo (un error) se imprime el error de cada funcion y se retonar un valor para ejecutar el ciclo de la partida de nuevo
 			-- RETURN TRUE;
 			DBMS_OUTPUT.PUT_LINE('Error');
@@ -36,17 +38,18 @@ BEGIN
 		-- RETURN TRUE;
 	END IF;
 	
-	CASE LOWER(SUBSTR(sourceData, INSTR(sourceData, ',') + 1))
+	CASE LOWER(sourcePiece.DISPLAY)
+		
 		WHEN 'p' THEN
 			-- Funcion peon
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Peon');
 
 
-        DBMS_OUTPUT.PUT_LINE(sourceData);
-        DBMS_OUTPUT.PUT_LINE(targetData);
-        move:=CHECKPEON(source, target, targetData, matchTurn, matchID);
-		DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
-		-- MOVE=1 Se movió 0 = No
+        	DBMS_OUTPUT.PUT_LINE(sourceData);
+        	DBMS_OUTPUT.PUT_LINE(targetData);
+        	-- move:=CHECKPEON(source, target, targetData, matchTurn, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+			-- MOVE=1 Se movió 0 = No
 
 		WHEN 't' THEN
 			-- Funcion torre

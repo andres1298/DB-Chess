@@ -9,37 +9,34 @@
 -- =========================================
 
 CREATE OR REPLACE FUNCTION
-TargetPosition (position VARCHAR2, matchTurn CHAR, gameId number) RETURN VARCHAR2
+TargetPosition (position VARCHAR2, matchTurn CHAR, matchId number) RETURN PIECE
 IS
-	pCode PIECES.CODE%TYPE;
-	pDisplay PIECES.DISPLAY%TYPE;
-	pColor PIECES.COLOR%TYPE;
-
-	emptyValue CONSTANT VARCHAR2(5) := 'EMPTY'; -- Return value used in case the position position is empty. It's returned in NO_DATA_FOUND exception
+	pieceData PIECE;
 
 	-- EXCEPTIONS
 	PIECE_DOESNOT_MATCH EXCEPTION;
 BEGIN
-	
-	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pCode, pDisplay, pColor
+	pieceData := PIECE();
+	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pieceData.CODE, pieceData.DISPLAY, pieceData.COLOR
 	FROM PIECES_PER_MATCH PPM
 	JOIN PIECES P ON (PPM.PIECES_CODE = P.CODE)
 	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
-	AND MATCHES_ID=gameId;
+	AND PPM.MATCHES_ID = matchId;
 	
-	IF pColor = matchTurn THEN
+	IF pieceData.COLOR <> matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
 	
-	RETURN pCode || ',' || pDisplay;
+	RETURN pieceData;
 	
 	EXCEPTION
 		
 		WHEN PIECE_DOESNOT_MATCH THEN
 			DBMS_OUTPUT.PUT_LINE('La casilla de destino contiene una pieza aliada');
 			RETURN NULL;
-		WHEN NO_DATA_FOUND THEN	
-			RETURN emptyValue;
+		WHEN NO_DATA_FOUND THEN	-- The target position is empty. Hence the user can make the move if the piece algorithm validated later is also correct
+			pieceData.EMPTY := 1;
+			RETURN pieceData;
 		WHEN OTHERS THEN
 			DBMS_OUTPUT.PUT_LINE('Error al validar la posicion de destino. Por favor intente de nuevo');
 			RETURN NULL;
