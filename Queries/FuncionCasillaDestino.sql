@@ -23,7 +23,7 @@ BEGIN
 	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
 	AND PPM.MATCHES_ID = matchId;
 	
-	IF pieceData.COLOR <> matchTurn THEN
+	IF pieceData.COLOR = matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
 	
