@@ -20,12 +20,12 @@ BEGIN
     ROW1 := TO_NUMBER(SUBSTR(source, 2, 2));
     ROW2 := TO_NUMBER(SUBSTR(target, 2, 2));
 
-    DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData."EXISTS");
+    DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData.EXIST);
 
     IF(matchTurn=1) then
         DBMS_OUTPUT.PUT_LINE('Blanco');
 
-        IF((targetData."EXISTS" = 1) AND ((ROW1+1)=ROW2) AND (((COLUMN1 + 1) = COLUMN2) OR (COLUMN1 - 1) = COLUMN2)) THEN
+        IF((targetData.EXIST = 1) AND ((ROW1+1)=ROW2) AND (((COLUMN1 + 1) = COLUMN2) OR (COLUMN1 - 1) = COLUMN2)) THEN
             DBMS_OUTPUT.PUT_LINE('Sí es diagonal (quitar comentarios para eliminar)');
 
 
@@ -37,7 +37,7 @@ BEGIN
 
         CHECKPOS := TargetPosition(UPPER(NUMBERTOCOLUMN(COLUMN1)) || '' || (ROW1+1), matchTurn, matchID);
 
-        IF(CHECKPOS."EXISTS" = 0 AND COLUMN1 = COLUMN2 AND (ROW1 + 1 = ROW2 OR ((ROW1 = 2) AND ((ROW1 + 2 = ROW2) OR (ROW1 + 1 = ROW2))))) then
+        IF(CHECKPOS.EXIST = 0 AND COLUMN1 = COLUMN2 AND (ROW1 + 1 = ROW2 OR ((ROW1 = 2) AND ((ROW1 + 2 = ROW2) OR (ROW1 + 1 = ROW2))))) then
             DBMS_OUTPUT.PUT_LINE('Sí es movimiento normal (quitar comentarios para eliminar)');
 
             --UPDATE PIECES_PER_MATCH SET "COLUMN" = NUMBERTOCOLUMN(COLUMN2), "ROW" = ROW2 where MATCHES_ID = matchID AND PIECES_CODE = sourceData.DISPLAY;
@@ -45,7 +45,7 @@ BEGIN
         END IF;
     ELSE
         DBMS_OUTPUT.PUT_LINE('Negro');
-        IF((targetData."EXISTS" = 1) AND ((ROW1-1)=ROW2) AND (((COLUMN1 - 1) = COLUMN2) OR (COLUMN1 + 1) = COLUMN2)) THEN
+        IF((targetData.EXIST = 1) AND ((ROW1-1)=ROW2) AND (((COLUMN1 - 1) = COLUMN2) OR (COLUMN1 + 1) = COLUMN2)) THEN
             DBMS_OUTPUT.PUT_LINE('Si es diagonal (quitar comentarios para eliminar)');
 
             --DELETE FROM PIECES_PER_MATCH WHERE MATCHES_ID = matchID AND PIECES_CODE = targetData.DISPLAY;
@@ -55,7 +55,7 @@ BEGIN
 
 
         CHECKPOS := TargetPosition(UPPER(NUMBERTOCOLUMN(COLUMN1))||''||(ROW1-1), matchTurn, matchID);
-        IF(CHECKPOS."EXISTS" = 0 AND COLUMN1 = COLUMN2 AND (ROW1 - 1 = ROW2 OR ((ROW1 = 7) AND ((ROW1 - 2 = ROW2)) OR (ROW1 - 1 = ROW2)))) then
+        IF(CHECKPOS.EXIST = 0 AND COLUMN1 = COLUMN2 AND (ROW1 - 1 = ROW2 OR ((ROW1 = 7) AND ((ROW1 - 2 = ROW2)) OR (ROW1 - 1 = ROW2)))) then
             DBMS_OUTPUT.PUT_LINE('Sí es movimiento normal (quitar comentarios para eliminar)');
 
             --UPDATE PIECES_PER_MATCH SET "COLUMN" = NUMBERTOCOLUMN(COLUMN2), "ROW" = ROW2 where MATCHES_ID = matchID AND PIECES_CODE = sourceData.DISPLAY;

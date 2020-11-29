@@ -26,7 +26,7 @@ BEGIN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
 
-	pieceData."EXISTS" := 1;
+	pieceData.EXIST := 1;
 
 	RETURN pieceData;
 	
@@ -36,7 +36,7 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('La pieza seleccionada pertenece al jugador contrario');
 			RETURN NULL;
 		WHEN NO_DATA_FOUND THEN
-		    pieceData."EXISTS" := 0;
+		    pieceData.EXIST := 0;
 			DBMS_OUTPUT.PUT_LINE('La casilla de origen se encuentra vacia');
 			RETURN NULL;
 		WHEN OTHERS THEN

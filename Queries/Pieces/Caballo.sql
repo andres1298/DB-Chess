@@ -19,7 +19,7 @@ BEGIN
     ROW1 := TO_NUMBER(SUBSTR(source, 2, 2));
     ROW2 := TO_NUMBER(SUBSTR(target, 2, 2));
 
-    DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData."EXISTS");
+    DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData.EXIST);
     DBMS_OUTPUT.PUT_LINE(row1 || ', ' || NUMBERTOCOLUMN(column1));
     DBMS_OUTPUT.PUT_LINE(row2 || ', ' || NUMBERTOCOLUMN(column2));
         IF((ROW1+1 = ROW2 AND COLUMN1+2 = COLUMN2) OR
@@ -33,7 +33,7 @@ BEGIN
             DBMS_OUTPUT.PUT_LINE('Sí es movimiento valido (quitar comentarios para eliminar)');
 
 
-            IF(targetData."EXISTS" = 1) then
+            IF(targetData.EXIST = 1) then
                 DELETE FROM PIECES_PER_MATCH WHERE MATCHES_ID = matchID AND PIECES_CODE = targetData.DISPLAY;
             end if;
             UPDATE PIECES_PER_MATCH SET "COLUMN" = NUMBERTOCOLUMN(COLUMN2), "ROW" = ROW2 where MATCHES_ID = matchID AND PIECES_CODE = sourceData.DISPLAY;
