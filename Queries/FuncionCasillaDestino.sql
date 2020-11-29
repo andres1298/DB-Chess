@@ -26,6 +26,8 @@ BEGIN
 	IF pieceData.COLOR = matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
+
+	pieceData."EXISTS" := 1;
 	
 	RETURN pieceData;
 	
@@ -35,7 +37,7 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('La casilla de destino contiene una pieza aliada');
 			RETURN NULL;
 		WHEN NO_DATA_FOUND THEN	-- The target position is empty. Hence the user can make the move if the piece algorithm validated later is also correct
-			pieceData.EMPTY := 1;
+			pieceData."EXISTS" := 0;
 			RETURN pieceData;
 		WHEN OTHERS THEN
 			DBMS_OUTPUT.PUT_LINE('Error al validar la posicion de destino. Por favor intente de nuevo');

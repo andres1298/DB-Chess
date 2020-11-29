@@ -25,7 +25,9 @@ BEGIN
 	IF pieceData.COLOR <> matchTurn THEN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
-	
+
+	pieceData."EXISTS" := 1;
+
 	RETURN pieceData;
 	
 	EXCEPTION
@@ -33,7 +35,8 @@ BEGIN
 		WHEN PIECE_DOESNOT_MATCH THEN
 			DBMS_OUTPUT.PUT_LINE('La pieza seleccionada pertenece al jugador contrario');
 			RETURN NULL;
-		WHEN NO_DATA_FOUND THEN	
+		WHEN NO_DATA_FOUND THEN
+		    pieceData."EXISTS" := 0;
 			DBMS_OUTPUT.PUT_LINE('La casilla de origen se encuentra vacia');
 			RETURN NULL;
 		WHEN OTHERS THEN

@@ -1,12 +1,9 @@
 DECLARE
-	source VARCHAR2(2) := 'A1';
-	target VARCHAR2(2) := 'A2';
-	matchID NUMBER := 5;
+	source VARCHAR2(2) := 'G1';
+	target VARCHAR2(2) := 'F3';
+	matchID NUMBER := 21;
 	matchTurn MATCHES.TURN%TYPE;
-	proceed BOOLEAN := FALSE;
-	
-	sourceData VARCHAR2(10);
-	targetData VARCHAR2(10);
+
 	sourcePiece PIECE;
 	targetPiece PIECE;
 	move boolean;
@@ -45,9 +42,9 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Peon');
 
 
-        	DBMS_OUTPUT.PUT_LINE(sourceData);
-        	DBMS_OUTPUT.PUT_LINE(targetData);
-        	-- move:=CHECKPEON(source, target, targetData, matchTurn, matchID);
+        	DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
+        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
+        	move:=PEON(source, target, sourcePiece, targetPiece, matchTurn, matchID);
 			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
 			-- MOVE=1 Se movió 0 = No
 
@@ -56,7 +53,15 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Torre');
 		WHEN 'c' THEN
 			-- Funcion caballo
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Caballo');
+
+			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo caballo');
+
+
+        	DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
+        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
+        	move:=CABALLO(source, target, sourcePiece, targetPiece, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+			-- MOVE=1 Se movió 0 = No
 		WHEN 'a' THEN
 			-- Funcion alfil
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Alfil');
@@ -71,7 +76,7 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');
 	END CASE;
 		
-	DBMS_OUTPUT.PUT_LINE('Source: ' || sourceData || ' Target: ' || targetData || ' Turn: ' || matchTurn);
+	DBMS_OUTPUT.PUT_LINE('Source: ' || sourcePiece.DISPLAY || ' Target: ' || targetPiece.DISPLAY || ' Turn: ' || matchTurn);
 	 
 	EXCEPTION
 		
