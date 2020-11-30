@@ -5,14 +5,9 @@
 -- Returns: boolean
 -- =========================================
 
--- CREATE OR REPLACE FUNCTION
--- CHECKPEON (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn MATCHES.TURN%TYPE, matchID NUMBER) RETURN BOOLEAN
--- IS
-DECLARE
-    source VARCHAR2(2) := 'H8';
-    target VARCHAR2(3) := 'H2';
-    matchId NUMBER(2) := 5;
-    matchTurn NUMBER(1) := 1;
+CREATE OR REPLACE FUNCTION
+ROOK (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
+IS
     sourceRow NUMBER(1);
     targetRow NUMBER(1);
     sourceColumn NUMBER(1);

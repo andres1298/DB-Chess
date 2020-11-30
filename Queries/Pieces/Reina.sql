@@ -1,12 +1,12 @@
 -- =========================================
 -- Author: Andrés Bonilla
 -- Create date: 21/11/2020
--- Description: Function that determines whether a bishop movement is valid.
+-- Description: Function that determines whether a queen movement is valid.
 -- Returns: boolean
 -- =========================================
 
 CREATE OR REPLACE FUNCTION
-BISHOP (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
+QUEEN (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
 IS
     sourceRow NUMBER(1);
     targetRow NUMBER(1);
@@ -22,9 +22,22 @@ BEGIN
     targetColumn := COLUMNTONUMBER(LOWER(SUBSTR(target, 1, 1)));
     sourceRow := TO_NUMBER(SUBSTR(source, 2, 2));
     targetRow := TO_NUMBER(SUBSTR(target, 2, 2));
-    
-    IF ABS((sourceRow - targetRow)) = ABS((sourceColumn - targetColumn)) THEN
-    
+
+    IF (sourceColumn = targetColumn AND sourceRow <> targetRow) OR (sourceColumn <> targetColumn AND sourceRow = targetRow) THEN
+        IF sourceColumn = targetColumn AND sourceRow < targetRow THEN -- Movimiento vertical ascendente
+            invalidFlag := MOV.VerticalAscending(sourceRow, targetRow, targetColumn, matchId, matchTurn);
+
+        ELSIF sourceColumn = targetColumn AND sourceRow > targetRow THEN -- Movimiento vertical descendente
+            invalidFlag := MOV.VerticalDescending(sourceRow, targetRow, targetColumn, matchId, matchTurn);
+        
+        ELSIF sourceColumn < targetColumn AND sourceRow = targetRow THEN -- Movimiento horizontal ascendente
+            invalidFlag := MOV.HorizontalAscending(sourceColumn, targetRow, targetColumn, matchId, matchTurn);
+
+        ELSIF sourceColumn > targetColumn AND sourceRow = targetRow THEN -- Movimiento horizontal descendente
+            invalidFlag := MOV.HorizontalDescending(sourceColumn, targetRow, targetColumn, matchId, matchTurn);
+        END IF;
+
+    ELSIF ABS((sourceRow - targetRow)) = ABS((sourceColumn - targetColumn)) THEN
         IF sourceColumn < targetColumn AND sourceRow < targetRow THEN -- Movimiento horizontal ascendente hacia la derecha
             invalidFlag := MOV.RightDiagonalAscending(sourceRow, sourceColumn, targetRow, targetColumn, matchId, matchTurn);
 
@@ -39,13 +52,11 @@ BEGIN
 
         END IF;
     ELSE
-         errorFlag := TRUE;
+        errorFlag := TRUE;
     END IF;
 
-    
-
     IF errorFlag THEN
-        DBMS_OUTPUT.PUT_LINE('El movimiento del alfil no es diagonal.');
+        DBMS_OUTPUT.PUT_LINE('El movimiento de la torre no es lineal.');
     ELSIF invalidFlag THEN
         DBMS_OUTPUT.PUT_LINE('Movimiento invalido. Hay una pieza en la coordenada');
     ELSE
@@ -62,6 +73,6 @@ BEGIN
 
     EXCEPTION
       WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Error al ejecutar el movimiento del alfil ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Error al ejecutar el movimiento de la torre');
 END;
 /
