@@ -1,6 +1,6 @@
 DECLARE
-	source VARCHAR2(2) := 'G1';
-	target VARCHAR2(2) := 'F3';
+	source VARCHAR2(2) := 'D1';
+	target VARCHAR2(2) := 'C1';
 	matchID NUMBER := 21;
 	matchTurn MATCHES.TURN%TYPE;
 
@@ -71,6 +71,10 @@ BEGIN
 		WHEN 'r' THEN
 			-- Funcion rey
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Rey');
+			DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
+        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
+        	move:=REY(source, target, sourcePiece, targetPiece, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
 		ELSE
 			-- Mensaje de error de pieza no encontrada
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');

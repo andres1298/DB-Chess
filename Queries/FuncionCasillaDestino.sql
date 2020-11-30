@@ -13,6 +13,9 @@ TargetPosition (position VARCHAR2, matchTurn CHAR, matchId number) RETURN PIECE
 IS
 	pieceData PIECE;
 
+	-- EXCEPTIONS
+	PIECE_DOESNOT_MATCH EXCEPTION;
+
 BEGIN
 	pieceData := PIECE();
 	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pieceData.CODE, pieceData.DISPLAY, pieceData.COLOR
@@ -21,11 +24,18 @@ BEGIN
 	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
 	AND PPM.MATCHES_ID = matchId;
 
+	IF pieceData.COLOR = matchTurn THEN
+		RAISE PIECE_DOESNOT_MATCH;
+	END IF;
+
 	pieceData.EXIST := 1;
 	
 	RETURN pieceData;
 	
 	EXCEPTION
+        WHEN PIECE_DOESNOT_MATCH THEN
+			DBMS_OUTPUT.PUT_LINE('La casilla de destino contiene una pieza aliada');
+			RETURN NULL;
 		WHEN NO_DATA_FOUND THEN	-- The target position is empty. Hence the user can make the move if the piece algorithm validated later is also correct
 			pieceData.EXIST := 0;
 			RETURN pieceData;
