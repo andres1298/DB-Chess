@@ -9,14 +9,28 @@
 -- =========================================
 
 CREATE OR REPLACE FUNCTION
-TargetPosition (position VARCHAR2, matchTurn CHAR, matchId number) RETURN PIECE
+TargetPosition (position VARCHAR2, matchTurn CHAR, matchId number, withException boolean DEFAULT FALSE) RETURN PIECE
 IS
 	pieceData PIECE;
+	X NUMBER;
+	Y NUMBER;
 
 	-- EXCEPTIONS
 	PIECE_DOESNOT_MATCH EXCEPTION;
-
+    NONEXISTING_COORDINATES EXCEPTION;
 BEGIN
+
+    IF(length(position) = 2) THEN
+        X:=TO_NUMBER(SUBSTR(position, 2, 2));
+        Y:=COLUMNTONUMBER(LOWER(SUBSTR(position, 1, 1)));
+    ELSE
+        RAISE NONEXISTING_COORDINATES;
+    end if;
+
+    IF(x <= 0 OR x >= 9 OR y <= 0 OR y >= 9) THEN
+        RAISE NONEXISTING_COORDINATES;
+    end if;
+
 	pieceData := PIECE();
 	SELECT P.CODE, P.DISPLAY, P.COLOR INTO pieceData.CODE, pieceData.DISPLAY, pieceData.COLOR
 	FROM PIECES_PER_MATCH PPM
@@ -24,7 +38,7 @@ BEGIN
 	WHERE "ROW" = TO_NUMBER(SUBSTR(position, 2, 2)) AND "COLUMN" = LOWER(SUBSTR(position, 1, 1))
 	AND PPM.MATCHES_ID = matchId;
 
-	IF pieceData.COLOR = matchTurn THEN
+	IF pieceData.COLOR = matchTurn AND withException THEN
 		RAISE PIECE_DOESNOT_MATCH;
 	END IF;
 
@@ -33,6 +47,8 @@ BEGIN
 	RETURN pieceData;
 	
 	EXCEPTION
+        WHEN NONEXISTING_COORDINATES THEN
+			RETURN NULL;
         WHEN PIECE_DOESNOT_MATCH THEN
 			DBMS_OUTPUT.PUT_LINE('La casilla de destino contiene una pieza aliada');
 			RETURN NULL;

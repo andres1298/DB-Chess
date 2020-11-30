@@ -1,15 +1,17 @@
 DECLARE
-	source VARCHAR2(2) := 'D1';
-	target VARCHAR2(2) := 'C1';
+	source VARCHAR2(2) := 'B7';
+	target VARCHAR2(2) := 'C6';
 	matchID NUMBER := 21;
 	matchTurn MATCHES.TURN%TYPE;
 
 	sourcePiece PIECE;
 	targetPiece PIECE;
 	move boolean;
+    checkmateBool boolean;
 	-- Exceptions
 	SOURCE_INCORRECT_SIZE EXCEPTION;
 	TARGET_INCORRECT_SIZE EXCEPTION;
+	ERROR_EXCEPTION EXCEPTION;
 BEGIN
 	-- Validaciones de formato 
 	-- Posible implementar REGEX_LIKE para validar que contenga una letra entre A y H en la primera posicion y numeros del 1 al 8 en la segunda posicion
@@ -18,15 +20,15 @@ BEGIN
 	ELSIF LENGTH(target) <> 2 THEN 
 		RAISE TARGET_INCORRECT_SIZE;
 	END IF;
-	
 	matchTurn := GETTURN(matchID);
 	IF matchTurn IS NOT NULL THEN
 		sourcePiece := SourcePosition(source, matchTurn, matchID);
-		targetPiece := TargetPosition(target, matchTurn, matchID);
+		targetPiece := TargetPosition(target, matchTurn, matchID, true);
 		IF sourcePiece IS NULL OR targetPiece IS NULL THEN
 			-- Si se obtiene un valor nulo (un error) se imprime el error de cada funcion y se retonar un valor para ejecutar el ciclo de la partida de nuevo
 			-- RETURN TRUE;
 			DBMS_OUTPUT.PUT_LINE('Error');
+			raise ERROR_EXCEPTION;
 		END IF;
 	-- Si no se puede obtener el ID de la partida, se muestra el mensaje de error obtenido en la funcion GetTurn 
 	-- y se retorna un valor para ejecutar el ciclo de la partida de nuevo
@@ -34,7 +36,7 @@ BEGIN
 	-- ELSE 
 		-- RETURN TRUE;
 	END IF;
-	
+
 	CASE LOWER(sourcePiece.DISPLAY)
 		
 		WHEN 'p' THEN
@@ -83,7 +85,8 @@ BEGIN
 	DBMS_OUTPUT.PUT_LINE('Source: ' || sourcePiece.DISPLAY || ' Target: ' || targetPiece.DISPLAY || ' Turn: ' || matchTurn);
 	 
 	EXCEPTION
-		
+		WHEN ERROR_EXCEPTION THEN
+			DBMS_OUTPUT.PUT_LINE('Movimiento inválido');
 		WHEN SOURCE_INCORRECT_SIZE THEN
 			DBMS_OUTPUT.PUT_LINE('Las coordenadas de origen no tienen el formato adecuado');
 		WHEN TARGET_INCORRECT_SIZE THEN

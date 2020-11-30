@@ -32,13 +32,14 @@ BEGIN
            (ROW1-1 = ROW2 AND COLUMN1+1 = COLUMN2)) then
             DBMS_OUTPUT.PUT_LINE('Sí es movimiento valido (quitar comentarios para eliminar)');
 
+            DBMS_OUTPUT.PUT_LINE(sourceData.CODE);
 
-            /*
+
             IF(targetData.EXIST = 1) then
-                DELETE FROM PIECES_PER_MATCH WHERE MATCHES_ID = matchID AND PIECES_CODE = targetData.DISPLAY;
+                DELETE FROM PIECES_PER_MATCH WHERE MATCHES_ID = matchID AND PIECES_CODE = targetData.CODE;
             end if;
-            UPDATE PIECES_PER_MATCH SET "COLUMN" = NUMBERTOCOLUMN(COLUMN2), "ROW" = ROW2 where MATCHES_ID = matchID AND PIECES_CODE = sourceData.DISPLAY;
-            */
+            UPDATE PIECES_PER_MATCH SET "COLUMN" = NUMBERTOCOLUMN(COLUMN2), "ROW" = ROW2 where MATCHES_ID = matchID AND PIECES_CODE = sourceData.CODE;
+
             RETURN TRUE;
         END IF;
 
