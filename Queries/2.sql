@@ -21,7 +21,9 @@ BEGIN
    Insert into matches (id, start_date, turn, players_id1, players_id2,status) 
                 Values(vid,vstart_date,vturn,id1,id2,vstatus);
   DBMS_OUTPUT.PUT_LINE ('Partida creada exitosamente');
- 
+EXCEPTION
+  WHEN no_data_found THEN 
+    DBMS_OUTPUT.PUT_LINE('Alguno de los usuarios digitados no existe');
 END;
 /
 pause
