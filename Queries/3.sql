@@ -14,6 +14,7 @@ EXCEPTION
   WHEN no_data_found THEN 
     DBMS_OUTPUT.PUT_LINE('El usuario no existe');
     
+    
 END;
 /
 PAUSE

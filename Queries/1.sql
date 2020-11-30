@@ -17,6 +17,7 @@ BEGIN
 EXCEPTION
   WHEN OTHERS THEN 
     DBMS_OUTPUT.PUT_LINE('El nombre de usuario ya existe');
+    
 END;
 /
 pause

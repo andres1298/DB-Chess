@@ -4,7 +4,6 @@ set verify off
 prompt 'Creando partida...'
 accept usuario1 char prompt 'Digite el usuario 1: ' 
 accept usuario2 char prompt 'Digite el usuario 2: '
-
 DECLARE
   vid matches.id%type := matches_id_seq.nextval;
   vstart_date matches.start_date%type := TO_DATE(sysdate);

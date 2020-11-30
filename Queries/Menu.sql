@@ -9,6 +9,7 @@ prompt 4.Buscar partida.
 prompt 5.Continuar partida
 prompt 0.Salir
 prompt 
+
 accept op number prompt 'Digite la opcion: '
 start &op
 
