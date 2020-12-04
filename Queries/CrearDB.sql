@@ -53,6 +53,7 @@ CREATE TABLE players (
 );
 
 ALTER TABLE players ADD CONSTRAINT players_pk PRIMARY KEY ( id );
+ALTER TABLE players ADD CONSTRAINT username_unique UNIQUE (username);
 
 ALTER TABLE matches
     ADD CONSTRAINT matches_players_fk FOREIGN KEY ( players_id1 )

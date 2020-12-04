@@ -4,7 +4,14 @@ DECLARE
     columnLetter char;
     piecesCode VARCHAR2(3);
     pieceDisplay  VARCHAR2(3);
+    resul varchar2(100);
 BEGIN
+
+
+
+    SELECT encabezado(13) INTO resul FROM DUAL;
+    DBMS_OUTPUT.PUT_LINE(resul);
+    DBMS_OUTPUT.PUT_LINE(' ');
 
     DBMS_OUTPUT.PUT_LINE(rpad('.',3) || LPAD('a', 8) || LPAD('b', 8) || LPAD('c', 8) || LPAD('d', 8) || LPAD('e', 8) || LPAD('f', 8) || LPAD('g', 8) || LPAD('h', 8));
 
