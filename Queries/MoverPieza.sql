@@ -5,10 +5,12 @@ CREATE OR REPLACE PROCEDURE moverPieza (matchID number, source VARCHAR2, target 
 	targetPiece PIECE;
 	move boolean;
     checkmateBool boolean;
+	currStatus MATCHES.STATUS%TYPE;
 	-- Exceptions
 	SOURCE_INCORRECT_SIZE EXCEPTION;
 	TARGET_INCORRECT_SIZE EXCEPTION;
 	ERROR_EXCEPTION EXCEPTION;
+	GAME_IS_OVER EXCEPTION;
 BEGIN
 	-- Validaciones de formato 
 	-- Posible implementar REGEX_LIKE para validar que contenga una letra entre A y H en la primera posicion y numeros del 1 al 8 en la segunda posicion
@@ -18,6 +20,10 @@ BEGIN
 		RAISE TARGET_INCORRECT_SIZE;
 	END IF;
 	matchTurn := GETTURN(matchID);
+	SELECT STATUS into currStatus from MATCHES where id = matchID;
+	IF(currStatus=0) THEN
+        RAISE GAME_IS_OVER;
+    end if;
 	IF matchTurn IS NOT NULL THEN
 		sourcePiece := SourcePosition(source, matchTurn, matchID);
 		targetPiece := TargetPosition(target, matchTurn, matchID, true);
@@ -37,30 +43,15 @@ BEGIN
 	CASE LOWER(sourcePiece.DISPLAY)
 		
 		WHEN 'p' THEN
-			-- Funcion peon
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Peon');
-
-
-        	DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
-        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
         	move:=PEON(source, target, sourcePiece, targetPiece, matchTurn, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
-			-- MOVE=1 Se movió 0 = No
-
 		WHEN 't' THEN
 			-- Funcion torre
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Torre');
 		WHEN 'c' THEN
 			-- Funcion caballo
 
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo caballo');
-
-
-        	DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
-        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
         	move:=CABALLO(source, target, sourcePiece, targetPiece, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
-			-- MOVE=1 Se movió 0 = No
+
 		WHEN 'a' THEN
 			-- Funcion alfil
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Alfil');
@@ -69,28 +60,42 @@ BEGIN
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Dama');
 		WHEN 'r' THEN
 			-- Funcion rey
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Rey');
-			DBMS_OUTPUT.PUT_LINE(sourcePiece.DISPLAY);
-        	DBMS_OUTPUT.PUT_LINE(targetPiece.DISPLAY);
         	move:=REY(source, target, sourcePiece, targetPiece, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+
 		ELSE
 			-- Mensaje de error de pieza no encontrada
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');
 	END CASE;
     
     IF move THEN
-     IF matchTurn = 1 then 
-       update matches set turn = 0 where id = matchID;
-     ELSE
-       update matches set turn = 1 where id = matchID;
+    checkmateBool:= CHECKMATE.CM(matchID, matchTurn);
+
+         IF matchTurn = 1 then
+           update matches set turn = 0 where id = matchID;
+         ELSE
+           update matches set turn = 1 where id = matchID;
+         end if;
+
+     IF(checkmateBool) THEN
+
+         IF matchTurn = 1 then
+           TERMINARJUEGO(matchID, 0);
+           raise GAME_IS_OVER;
+         ELSE
+           TERMINARJUEGO(matchID, 1);
+           raise GAME_IS_OVER;
+         end if;
      end if;
-       MostrarTablero(matchID);
-    
+
+         MostrarTablero(matchID);
+    ELSE
+        raise ERROR_EXCEPTION;
     end if;
      
 	 
 	EXCEPTION
+		WHEN GAME_IS_OVER THEN
+			DBMS_OUTPUT.PUT_LINE('La partida ha acabado');
 		WHEN ERROR_EXCEPTION THEN
 			DBMS_OUTPUT.PUT_LINE('Movimiento inválido');
 		WHEN SOURCE_INCORRECT_SIZE THEN

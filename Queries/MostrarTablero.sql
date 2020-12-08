@@ -33,9 +33,7 @@ BEGIN
             SELECT pieces_code into piecesCode FROM PIECES_PER_MATCH WHERE matches_id = matchId AND "ROW" = i AND "COLUMN" = columnLetter;
             EXCEPTION
                 when NO_DATA_FOUND then
-
                     content := content || rpad('|',8,' ');
-
                 CONTINUE;
             END;
 

@@ -1,4 +1,3 @@
-clea screen
 set serveroutput on
 set verify off
 prompt 'Digite el numero de partida...'
