@@ -1,9 +1,6 @@
-DECLARE
-	source VARCHAR2(2) := 'B7';
-	target VARCHAR2(2) := 'C6';
-	matchID NUMBER := 21;
-	matchTurn MATCHES.TURN%TYPE;
+CREATE OR REPLACE PROCEDURE moverPieza (matchID number, source VARCHAR2, target VARCHAR2) IS 
 
+	matchTurn MATCHES.TURN%TYPE;
 	sourcePiece PIECE;
 	targetPiece PIECE;
 	move boolean;
@@ -81,8 +78,17 @@ BEGIN
 			-- Mensaje de error de pieza no encontrada
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');
 	END CASE;
-		
-	DBMS_OUTPUT.PUT_LINE('Source: ' || sourcePiece.DISPLAY || ' Target: ' || targetPiece.DISPLAY || ' Turn: ' || matchTurn);
+    
+    IF move THEN
+     IF matchTurn = 1 then 
+       update matches set turn = 0 where id = matchID;
+     ELSE
+       update matches set turn = 1 where id = matchID;
+     end if;
+       MostrarTablero(matchID);
+    
+    end if;
+     
 	 
 	EXCEPTION
 		WHEN ERROR_EXCEPTION THEN

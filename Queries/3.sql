@@ -1,7 +1,7 @@
 clea screen
 set serveroutput on
 set verify off
-prompt 'Estadisticas del jugar...'
+prompt 'Estadisticas del jugador...'
 
 accept usuario char prompt 'Digite el nombre del usuario que desea consultar: ' 
 

@@ -1,5 +1,5 @@
-DECLARE
-    matchId NUMBER := 21;
+
+CREATE OR REPLACE PROCEDURE MostrarTablero(matchId number) is
     content VARCHAR2(500) := '';
     columnLetter char;
     piecesCode VARCHAR2(3);
@@ -9,9 +9,10 @@ BEGIN
 
 
 
-    SELECT encabezado(13) INTO resul FROM DUAL;
+    SELECT encabezado(matchId) INTO resul FROM DUAL;
     DBMS_OUTPUT.PUT_LINE(resul);
     DBMS_OUTPUT.PUT_LINE(' ');
+     DBMS_OUTPUT.PUT_LINE(' ');
 
     DBMS_OUTPUT.PUT_LINE(rpad('.',3) || LPAD('a', 8) || LPAD('b', 8) || LPAD('c', 8) || LPAD('d', 8) || LPAD('e', 8) || LPAD('f', 8) || LPAD('g', 8) || LPAD('h', 8));
 

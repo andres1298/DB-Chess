@@ -13,7 +13,8 @@ BEGIN
   where id = vid;
   SELECT name into nombre1 from players where id =id1;
   SELECT name into nombre2 from players where id =id2;
-  IF turno = 'B' THEN
+
+  IF turno = '1' THEN
    mueve := 'Blancas';
   ELSE
    mueve:= 'Negras';
