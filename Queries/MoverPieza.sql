@@ -1,7 +1,7 @@
 DECLARE
-	source VARCHAR2(2) := 'B7';
-	target VARCHAR2(2) := 'C6';
-	matchID NUMBER := 21;
+	source VARCHAR2(2) := '11';
+	target VARCHAR2(2) := 'C9';
+	matchID NUMBER := 5;
 	matchTurn MATCHES.TURN%TYPE;
 
 	sourcePiece PIECE;
@@ -53,6 +53,8 @@ BEGIN
 		WHEN 't' THEN
 			-- Funcion torre
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Torre');
+			-- move:=ROOK(source, target, sourcePiece, targetPiece, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
 		WHEN 'c' THEN
 			-- Funcion caballo
 
@@ -67,9 +69,13 @@ BEGIN
 		WHEN 'a' THEN
 			-- Funcion alfil
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Alfil');
+			-- move:=BISHOP(source, target, sourcePiece, targetPiece, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
 		WHEN 'd' THEN
 			-- Funcion dama
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Dama');
+			-- move:=QUEEN(source, target, targetPiece, matchID);
+			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
 		WHEN 'r' THEN
 			-- Funcion rey
 			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Rey');
