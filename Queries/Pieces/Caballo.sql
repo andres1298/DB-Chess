@@ -19,9 +19,9 @@ BEGIN
     ROW1 := TO_NUMBER(SUBSTR(source, 2, 2));
     ROW2 := TO_NUMBER(SUBSTR(target, 2, 2));
 
-    DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData.EXIST);
-    DBMS_OUTPUT.PUT_LINE(row1 || ', ' || NUMBERTOCOLUMN(column1));
-    DBMS_OUTPUT.PUT_LINE(row2 || ', ' || NUMBERTOCOLUMN(column2));
+    --DBMS_OUTPUT.PUT_LINE('T display: ' || targetData.DISPLAY || ' T exists: ' || targetData.EXIST);
+    --DBMS_OUTPUT.PUT_LINE(row1 || ', ' || NUMBERTOCOLUMN(column1));
+    --DBMS_OUTPUT.PUT_LINE(row2 || ', ' || NUMBERTOCOLUMN(column2));
         IF((ROW1+1 = ROW2 AND COLUMN1+2 = COLUMN2) OR
            (ROW1-1 = ROW2 AND COLUMN1+2 = COLUMN2) OR
            (ROW1+1 = ROW2 AND COLUMN1-2 = COLUMN2) OR
@@ -30,7 +30,7 @@ BEGIN
            (ROW1+2 = ROW2 AND COLUMN1+1 = COLUMN2) OR
            (ROW1-2 = ROW2 AND COLUMN1-1 = COLUMN2) OR
            (ROW1-2 = ROW2 AND COLUMN1+1 = COLUMN2)) then
-            DBMS_OUTPUT.PUT_LINE('Sí es movimiento valido (quitar comentarios para eliminar)');
+           -- DBMS_OUTPUT.PUT_LINE('Sí es movimiento valido (quitar comentarios para eliminar)');
 
 
             IF(targetData.EXIST = 1) then

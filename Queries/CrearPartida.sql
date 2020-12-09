@@ -1,6 +1,4 @@
-DECLARE
-    idJugador1 NUMBER := 4;
-    idJugador2 NUMBER := 5;
+CREATE OR REPLACE PROCEDURE CrearPartida(idJugador1 number, idJugador2 number) is
     i1 NUMBER  := 0;
     i2 NUMBER  := 0;
     matchId NUMBER := 0;
@@ -72,6 +70,6 @@ BEGIN
     INSERT INTO PIECES_PER_MATCH (PIECES_CODE, MATCHES_ID, "ROW", "COLUMN", COLOR) values ('BP2', matchId, 2, 'g', 1);
     INSERT INTO PIECES_PER_MATCH (PIECES_CODE, MATCHES_ID, "ROW", "COLUMN", COLOR) values ('BP1', matchId, 2, 'h', 1);
 
-    DBMS_OUTPUT.PUT_LINE('Fin');
+    mostrarTablero(matchId);
 END;
 /

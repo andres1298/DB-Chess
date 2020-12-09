@@ -18,8 +18,8 @@ DBMS_OUTPUT.PUT_LINE ('Número de juego  Fecha de inicio  Turno  Jugador 1  Jugad
   
         select name into vname2 from players
         where id = id2;
-        DBMS_OUTPUT.PUT_LINE (lpad(i.id,8,' ')  || lpad(i.start_date, 20,' ')||
-                              lpad(i.turn,9,' ') || lpad(vname1,10,' ') ||
+        DBMS_OUTPUT.PUT_LINE (lpad(i.id,13,' ')  || lpad(i.start_date, 28,' ')||
+                              lpad(i.turn,6,' ') || lpad(vname1,10,' ') ||
                               lpad(vname2,12, ' '));
       
       end loop;
