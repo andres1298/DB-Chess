@@ -9,7 +9,7 @@ CREATE OR REPLACE PROCEDURE buscar( vid number) is
    ORDER BY id ASC;
 
 begin
-DBMS_OUTPUT.PUT_LINE ('Número de juego  Fecha de inicio  Turno  Jugador 1  Jugador2');
+DBMS_OUTPUT.PUT_LINE ('Numero de juego  Fecha de inicio  Turno  Jugador 1  Jugador2');
       for i in buscar loop
         id1 := i.players_id1;
         id2 :=i.players_id2;

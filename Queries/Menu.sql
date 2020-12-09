@@ -1,5 +1,5 @@
 SET LINE 500
-clear screen
+
 set serveroutput on
 set verify off
 prompt Que desea realizar?

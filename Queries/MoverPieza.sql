@@ -46,28 +46,19 @@ BEGIN
         	move:=PEON(source, target, sourcePiece, targetPiece, matchTurn, matchID);
 		WHEN 't' THEN
 			-- Funcion torre
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Torre');
-			-- move:=ROOK(source, target, sourcePiece, targetPiece, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+			move:=ROOK(source, target, matchTurn, matchID);
 		WHEN 'c' THEN
 			-- Funcion caballo
-
         	move:=CABALLO(source, target, sourcePiece, targetPiece, matchID);
-
 		WHEN 'a' THEN
 			-- Funcion alfil
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Alfil');
-			-- move:=BISHOP(source, target, sourcePiece, targetPiece, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+			move:=BISHOP(source, target, matchTurn, matchID);
 		WHEN 'd' THEN
 			-- Funcion dama
-			DBMS_OUTPUT.PUT_LINE('Ejecutar algoritmo Dama');
-			-- move:=QUEEN(source, target, targetPiece, matchID);
-			DBMS_OUTPUT.PUT_LINE(SYS.DIUTIL.BOOL_TO_INT(move));
+			move:=QUEEN(source, target, matchTurn, matchID);
 		WHEN 'r' THEN
 			-- Funcion rey
         	move:=REY(source, target, sourcePiece, targetPiece, matchID);
-
 		ELSE
 			-- Mensaje de error de pieza no encontrada
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');

@@ -6,7 +6,7 @@
 -- =========================================
 
 CREATE OR REPLACE FUNCTION
-ROOK (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
+ROOK (source VARCHAR2, target VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
 IS
     sourceRow NUMBER(1);
     targetRow NUMBER(1);
@@ -54,10 +54,13 @@ BEGIN
             WHERE MATCHES_ID = matchID AND "COLUMN" = NUMBERTOCOLUMN(sourceColumn) AND "ROW" = sourceRow;
         COMMIT;
         DBMS_OUTPUT.PUT_LINE('Movimiento realizado.');
+        RETURN TRUE;
     END IF;
-
+    RETURN FALSE;
+    
     EXCEPTION
       WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Error al ejecutar el movimiento de la torre');
+        RETURN FALSE;
 END;
 /

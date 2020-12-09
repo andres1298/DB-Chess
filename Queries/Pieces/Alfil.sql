@@ -6,7 +6,7 @@
 -- =========================================
 
 CREATE OR REPLACE FUNCTION
-BISHOP (source VARCHAR2, target VARCHAR2, targetData VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
+BISHOP (source VARCHAR2, target VARCHAR2, matchTurn NUMBER, matchID NUMBER) RETURN BOOLEAN
 IS
     sourceRow NUMBER(1);
     targetRow NUMBER(1);
@@ -27,7 +27,6 @@ BEGIN
     
         IF sourceColumn < targetColumn AND sourceRow < targetRow THEN -- Movimiento horizontal ascendente hacia la derecha
             invalidFlag := MOV.RightDiagonalAscending(sourceRow, sourceColumn, targetRow, targetColumn, matchId, matchTurn);
-
         ELSIF sourceColumn < targetColumn AND sourceRow > targetRow THEN -- Movimiento horizontal descendente hacia la derecha
             invalidFlag := MOV.RightDiagonalDescending(sourceRow, sourceColumn, targetRow, targetColumn, matchId, matchTurn);
         
@@ -58,10 +57,12 @@ BEGIN
             WHERE MATCHES_ID = matchID AND "COLUMN" = NUMBERTOCOLUMN(sourceColumn) AND "ROW" = sourceRow;
         COMMIT;
         DBMS_OUTPUT.PUT_LINE('Movimiento realizado.');
+        RETURN TRUE;
     END IF;
-
+    RETURN FALSE;
     EXCEPTION
       WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Error al ejecutar el movimiento del alfil ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Error al ejecutar el movimiento del alfil');
+        RETURN FALSE;
 END;
 /
