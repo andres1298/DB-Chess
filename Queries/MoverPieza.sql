@@ -58,7 +58,7 @@ BEGIN
 			move:=QUEEN(source, target, matchTurn, matchID);
 		WHEN 'r' THEN
 			-- Funcion rey
-        	move:=REY(source, target, sourcePiece, targetPiece, matchID);
+        	move:=REY(source, target, sourcePiece, targetPiece, matchTurn, matchID);
 		ELSE
 			-- Mensaje de error de pieza no encontrada
 			DBMS_OUTPUT.PUT_LINE('Error de pieza');
@@ -83,8 +83,8 @@ BEGIN
            raise GAME_IS_OVER;
          end if;
      end if;
-
-         MostrarTablero(matchID);
+		COMMIT;
+        MostrarTablero(matchID);
     ELSE
         raise ERROR_EXCEPTION;
     end if;

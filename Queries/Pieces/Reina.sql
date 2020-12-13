@@ -56,7 +56,7 @@ BEGIN
     END IF;
 
     IF errorFlag THEN
-        DBMS_OUTPUT.PUT_LINE('El movimiento de la torre no es lineal.');
+        DBMS_OUTPUT.PUT_LINE('El movimiento de la reina no es correcto.');
     ELSIF invalidFlag THEN
         DBMS_OUTPUT.PUT_LINE('Movimiento invalido. Hay una pieza en la coordenada');
     ELSE
