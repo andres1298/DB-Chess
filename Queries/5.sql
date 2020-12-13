@@ -14,7 +14,6 @@ EXCEPTION
   WHEN no_data_found THEN 
     DBMS_OUTPUT.PUT_LINE('La partida no existe');
 END;
-
 /
 
 --select * from matches
