@@ -21,7 +21,7 @@ BEGIN
  
 EXCEPTION
   WHEN no_data_found THEN     
-   DBMS_OUTPUT.PUT_LINE ('El usuario no existe');   
+   DBMS_OUTPUT.PUT_LINE ('No se encontró la partida solicitada');   
   WHEN OTHERS THEN 
     DBMS_OUTPUT.PUT_LINE('No se encontró la partida solicitada');
 END;
